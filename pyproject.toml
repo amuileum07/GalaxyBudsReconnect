@@ -1,0 +1,9 @@
+[project]
+name = "galaxy-buds-reconnect"
+version = "0.1.0"
+description = "Reconnect Galaxy Buds and restart Galaxy Buds Client on Linux"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.uv]
+package = false

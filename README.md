@@ -4,10 +4,10 @@ Linux에서 Flatpak으로 설치한 **Galaxy Buds Manager (Galaxy Buds Client)**
 
 ## 실행
 
-프로젝트 폴더에서 터미널을 열고 다음 명령을 실행하세요. `sudo`는 사용하지 마세요.
+Linux, Python 3.10 이상, `bluetoothctl`, Flatpak으로 설치한 Galaxy Buds Client가 필요합니다. 프로젝트 폴더에서 터미널을 열고 다음 명령을 실행하세요. `sudo`는 사용하지 마세요.
 
 ```sh
-python3 reconnect.py
+uv run reconnect.py
 ```
 
 이어폰을 케이스에서 꺼내거나 케이스 뚜껑을 연 상태로 실행하세요. 연결을 다시 만들기 때문에 정상 연결 중에도 해당 이어폰의 소리가 잠시 끊깁니다.
@@ -15,8 +15,12 @@ python3 reconnect.py
 변경 없이 실제 연결 상태와 앱 실행 개수만 확인하려면:
 
 ```sh
-python3 reconnect.py --check
+uv run reconnect.py --check
 ```
+
+`uv run`은 프로젝트의 `.venv`를 준비해 실행합니다. 추가 Python 패키지는 설치하지 않습니다. [uv 공식 프로젝트 안내](https://docs.astral.sh/uv/guides/projects/)
+
+uv 없이도 기존처럼 `python3 reconnect.py` 또는 `python3 reconnect.py --check`로 실행할 수 있습니다.
 
 ## 복구 순서
 
@@ -42,7 +46,7 @@ Buds3 Pro 양쪽을 케이스에 넣고 뚜껑을 연 상태에서 아래 연결
 
 ```sh
 cd GalaxyBudsReconnect
-python3 -m unittest -v
+uv run python -m unittest -v
 ```
 
 검증은 모의 명령 응답을 사용하며 실제 블루투스 연결을 변경하지 않습니다.
